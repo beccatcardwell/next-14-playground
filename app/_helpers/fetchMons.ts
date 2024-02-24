@@ -1,4 +1,5 @@
 "use server"
+
 import { POKEAPI_BASE_URL } from "../_lib/constants"
 
 const fetchMons = async (route: string) => {
@@ -8,7 +9,7 @@ const fetchMons = async (route: string) => {
          const data = await response.json()
          const urls = data.results.map((result: {url: string}) => {return result.url})
          
-         const getEachMon = await Promise.all(urls.map(async (url: string[]) => {
+         const getEachMon = await Promise.all(urls.map(async (url: string) => {
              const monResponse = await fetch(url)
              const monData = await monResponse.json()
              console.log(monData)

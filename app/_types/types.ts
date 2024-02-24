@@ -1,4 +1,4 @@
-export type PokemonCardType = {
+export type PokeCardType = {
     name: string
     id: number
     sprites: {
@@ -31,4 +31,17 @@ export type PokeTypesType = {
         name: string
     }
 }
+
+export type PokeListType = {
+    name: string
+    id: number
+    sprites: {
+        front_default: string
+    }
+    types: {
+        type: {
+            name: string
+        }
+    }[]
+}[]
 
