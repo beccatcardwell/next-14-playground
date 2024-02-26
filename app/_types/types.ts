@@ -17,12 +17,18 @@ export type PokeDetailsType = {
         id: number
         sprites: {
             front_default: string
+            blurredDataUrl: string
         }
         types: {
             type: {
                 name: string
             }
         }[]
+    }
+    blurredUrls: {
+        src: string
+        id: number
+        blurredUrl: string
     }
 }
 
