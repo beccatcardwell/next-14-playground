@@ -1,5 +1,6 @@
 
 import { getPlaiceholder } from "plaiceholder"
+import { ImageResults } from "../_types/types"
 
 //Next.js image component require base64 encoded image for the blurDataUrl prop used for placeholders
 export const getBase64 = async (imageUrl: string) => {
@@ -11,24 +12,13 @@ export const getBase64 = async (imageUrl: string) => {
         }
 
         const buffer = await res.arrayBuffer()
-
         const { base64 } = await getPlaiceholder(Buffer.from(buffer))
-
-        //console.log(`base64: ${base64}`)
 
         return base64
 
     } catch (e) {
         if (e instanceof Error) console.log(e.stack)
     }
-}
-
-type ImageResults = {
-    photos: {
-        src: string
-        blurredDataUrl: string
-        id: number
-    }[]
 }
 
 const addBlurredDataUrls = async (images: ImageResults) => {
@@ -40,7 +30,6 @@ const addBlurredDataUrls = async (images: ImageResults) => {
         photo.blurredDataUrl = base64Results[index]
         return photo
     })
-
     return photosWithBlur
 }
 
