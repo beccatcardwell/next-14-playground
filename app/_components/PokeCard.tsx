@@ -26,14 +26,7 @@ const PokeCard = async ({details, blurredUrls}: PokeDetailsType) => {
             )
         })
     return (
-        <div
-            id={origName + '-card-' + id}
-            className="card__poke"
-            style={{
-                backgroundColor: 
-                    // lightenDarkenHexColor(TYPE_COLOURS[details.types[0].type.name], -85) ||
-                    '#A8A77A' 
-            }}>
+        <div id={origName + '-card-' + id} className="card__poke" style={{ backgroundColor: lightenDarkenHexColor(TYPE_COLOURS[details.types[0].type.name], -85) || '#A8A77A' }}>
             <div className="card__header">
                 <h2 className="font-bold">{fmtName}</h2>
                 <p>{'#' + id}</p>
