@@ -11,7 +11,7 @@
 @media (prefers-color-scheme: dark) {
   :root {
     --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
+    --background-start-rgb: 35, 35, 35;
     --background-end-rgb: 0, 0, 0;
   }
 }
@@ -24,6 +24,10 @@ body {
       rgb(var(--background-end-rgb))
     )
     rgb(var(--background-start-rgb));
+}
+
+a {
+  text-decoration: underline;
 }
 
 .container__title {
@@ -42,10 +46,19 @@ body {
 }
 
 .card__poke {
-  border: 2px rgba(255, 255, 255, .5) solid;
-  border-radius: 3%;
+  color: white;
+  border: 8px goldenrod solid;
+  border-radius: 2%;
   padding: 8%;
   padding-bottom: calc(8% - 1em);
+  box-shadow: 5px 5px 15px rgba(0,0,0, 0.5), 2px 3px 8px rgba(0,0,0, 0.3);
+}
+
+.card__img {
+  text-align: center;
+  margin: 1em 0;
+  background-color: lightgoldenrodyellow;
+  border-radius: 4%;
 }
 
 .card__body {
@@ -60,13 +73,13 @@ body {
 
 
     li {
+      font-size: .8rem;
       padding: 0.2em 0.75em;
       margin-right: 1rem;
       margin-bottom: 1rem;
-      border-radius: 5%;
-      border: 1px #BDBDBD solid;
+      border-radius: 2%;
       span {
-        padding: 0.35em  0.75em;
+        padding: 0.34em  0.6em;
         background: black;
       }
     }

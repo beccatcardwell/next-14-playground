@@ -4,7 +4,7 @@ import { MonsDataType, PokeCardType, PokeListType } from '../_types/types'
 import addBlurredDataUrls from "../_helpers/getBase64"
 
 const PokeCardSection = async () => {
-    const monsData: MonsDataType = await fetchMons('pokemon?limit=20&offset=00')
+    const monsData: MonsDataType = await fetchMons('pokemon?limit=100&offset=200')
     const mons = monsData?.pokemon
     const blurredUrls = await addBlurredDataUrls(monsData)
 
@@ -21,7 +21,7 @@ const PokeCardSection = async () => {
         })
     
     return (
-        <section className='cards__section grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-8'>
+        <section className='cards__section grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 gap-4 sm:gap-6 xl:gap-8'>
             {mons && renderCards(mons)} 
         </section>
     )
