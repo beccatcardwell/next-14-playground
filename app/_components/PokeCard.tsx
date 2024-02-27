@@ -21,7 +21,7 @@ const PokeCard = async ({details, blurredUrls}: PokeDetailsType) => {
             const fmtType = capitalizeWord(origType)
 
             return (
-                <li key={origType} style={{backgroundColor: TYPE_COLOURS[origType]}}>{fmtType}</li>
+                <li key={origType} style={{backgroundColor: TYPE_COLOURS[origType]}}><span>{fmtType}</span></li>
             )
         })
     return (
@@ -29,10 +29,9 @@ const PokeCard = async ({details, blurredUrls}: PokeDetailsType) => {
             <div className="card__header">
                 <h2 className="font-bold">{fmtName}</h2>
                 <p>{'#' + id}</p>
-                <h3>Types:</h3>
-                <ul>{renderTypes(details.types)}</ul>
+               
             </div>
-            <div className="card__body">
+            <div className="card__img">
                 <Image
                     src={details.sprites.front_default}
                     width={200}
@@ -41,7 +40,11 @@ const PokeCard = async ({details, blurredUrls}: PokeDetailsType) => {
                     placeholder='blur'
                     blurDataURL={blurredUrl}
                 />
-            </div>  
+            </div>
+            <div className="card__body">
+                <h3>Types:</h3>
+                <ul>{renderTypes(details.types)}</ul>
+            </div>
         </div>
     )
 }

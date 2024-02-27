@@ -1,0 +1,78 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+}
+
+.container__title {
+  padding: 6rem 6rem 3rem 6rem;
+  text-align: center;
+}
+
+.title__main {
+  font-size: 2rem;
+  padding-bottom: 1.5rem;
+}
+
+.p__main {
+  font-size: 1.1rem;
+  padding-bottom: .5rem;
+}
+
+.card__poke {
+  border: 2px rgba(255, 255, 255, .5) solid;
+  border-radius: 3%;
+  padding: 8%;
+  padding-bottom: calc(8% - 1em);
+}
+
+.card__body {
+  max-width: 100%;
+  ul {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    list-style: none;
+    max-width: 100%;
+    margin-top: 0.5rem;
+
+
+    li {
+      padding: 0.2em 0.75em;
+      margin-right: 1rem;
+      margin-bottom: 1rem;
+      border-radius: 5%;
+      border: 1px #BDBDBD solid;
+      span {
+        padding: 0.35em  0.75em;
+        background: black;
+      }
+    }
+  }
+}
+
+.main__home {
+  padding: 3rem 6rem 6rem 6rem;
+}
