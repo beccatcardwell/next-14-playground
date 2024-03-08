@@ -2,6 +2,7 @@ import Image from "next/image"
 import { PokeDetailsType } from "../_types/types"
 import { PokeTypesType } from "../_types/types"
 import { TYPE_COLOURS } from "../_lib/constants"
+import lightenDarkenHexColor from "../_helpers/lightenDarkenHexColor"
 
 const PokeCard = async ({details, blurredUrls}: PokeDetailsType) => {
     const capitalizeWord = (word: string) => {
@@ -21,18 +22,17 @@ const PokeCard = async ({details, blurredUrls}: PokeDetailsType) => {
             const fmtType = capitalizeWord(origType)
 
             return (
-                <li key={origType} style={{backgroundColor: TYPE_COLOURS[origType]}}>{fmtType}</li>
+                <li key={origType} style={{ backgroundColor: TYPE_COLOURS[origType] }}><span>{fmtType}</span></li>
             )
         })
     return (
-        <div id={origName + '-card-' + id} className="card__poke">
+        <div id={origName + '-card-' + id} className="card__poke" style={{ backgroundColor: lightenDarkenHexColor(TYPE_COLOURS[details.types[0].type.name], -85) || '#A8A77A' }}>
             <div className="card__header">
                 <h2 className="font-bold">{fmtName}</h2>
                 <p>{'#' + id}</p>
-                <h3>Types:</h3>
-                <ul>{renderTypes(details.types)}</ul>
+               
             </div>
-            <div className="card__body">
+            <div className="card__img">
                 <Image
                     src={details.sprites.front_default}
                     width={200}
@@ -41,7 +41,11 @@ const PokeCard = async ({details, blurredUrls}: PokeDetailsType) => {
                     placeholder='blur'
                     blurDataURL={blurredUrl}
                 />
-            </div>  
+            </div>
+            <div className="card__body">
+                <h3>Types:</h3>
+                <ul>{renderTypes(details.types)}</ul>
+            </div>
         </div>
     )
 }
